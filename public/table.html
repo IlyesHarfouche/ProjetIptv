@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Style.css">
+  <title>Configuration ⵣPTV</title>
+  <style>
+    .form-container {
+      display: inline-block;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <table id="data-table">
+    <h1>Choix de la fréquence du multiplex</h1>
+    <header>
+      <script src="ConvertJson.js"></script>
+      <form action="http://192.168.5.146:8080/chooseFreq" method="post" class="form-container">
+        <label for="multicast"> Valeur de freq :</label>
+        <select type="text" id="multicast" name="multicast">
+          <option value="586166000">586166000</option>
+          <option value="506166000">506166000</option>
+          <option value="482166000">482166000</option>
+          <option value="546166000">546166000</option>
+          <option value="562166000">562166000</option>
+          <option value="642166000">642166000</option>
+          <option value="530166000">530166000</option>
+        </select>
+        <label for="mode">Mode :</label>
+        <select type="text" id="mode" name="mode">
+          <option value="RTP">RTP</option>
+          <option value="UDP">UDP</option>
+        </select>
+        <label for="adapter">Adapter :</label>
+        <select type="text" id="adapter" name="adapter"> 
+          <option value="0">0</option>
+          <option value="1">1</option>
+        </select>
+        <button class="btnRetour" type="submit">VALIDER</button>
+      </form>
+      <h1>  </h1><form action="http://192.168.5.146:8080/scan" method="post" class="form-container">
+        <button class="btnRetour" type="submit">LANCER UN SCAN DES CHAINES</button>
+        <h1>  </h1>
+      </form>
+      <footer>
+        <form action="http://192.168.5.146:3000/index" method="get">
+          <button class="neon-box-1" type="submit">RETOUR</button>
+        </form>
+      </footer>
+    </header>
+  </table>
+</body>
+</html>
+
+
+<style>
+
+body
+{
+ 
+  background-color: #212121; 
+    color: white; 
+ text-align: center 
+       }
+
+       button {
+        margin-left: 50px;
+        margin-right: 50px;
+        --green: #1BFD9C;
+        font-size: 15px;
+        padding: 0.7em 2.7em;
+        letter-spacing: 0.06em;
+        position: relative;
+        font-family: inherit;
+        border-radius: 0.6em;
+        overflow: hidden;
+        transition: all 0.3s;
+        line-height: 1.4em;
+        border: 2px solid var(--green);
+        background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
+        color: var(--green);
+        box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+      }
+      
+      button:hover {
+        color: #82ffc9;
+        box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+      }
+      
+      button:before {
+        content: "";
+        position: absolute;
+        left: -4em;
+        width: 4em;
+        height: 100%;
+        top: 0;
+        transition: transform .4s ease-in-out;
+        background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
+      }
+      
+      button:hover:before {
+        transform: translateX(15em);
+      }
+   
+
+</style>
+
+
+
+</html>
+  

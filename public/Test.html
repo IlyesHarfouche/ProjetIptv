@@ -1,0 +1,137 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Liste des chaînes TV</title>
+      <header><h1>CHAINES QUI RESULTENT DU SCAN</h1>
+        <head>
+          <title>Configuration ⵣPTV </title>
+          <h1>  </h1>
+          <button class="btnRetour" onclick="window.location.href = 'http://192.168.5.146:8081/launch';">STREAMER LES CHAINES</button>
+          <button class="btnRetour" onclick="window.location.href = 'http://192.168.5.146:3131';">VALIDER LES CHAINES </button>
+
+          <h1>  </h1>
+          </head>
+
+      
+      </header>
+
+    </head>
+    <body>
+      <table>
+        <thead>
+        <th>Nom</th>
+        <th>Fréquence</th>
+        <th>Inversion</th>
+        <th>Bande passante</th>
+        <th>FEC interne</th>
+        <th>FEC externe</th>
+        <th>Modulation</th>
+        <th>Mode de transmission</th>
+        <th>Intervalle de garde</th>
+        <th>Hierarchie</th>
+        <th>VPID</th>
+        <th>Audio</th>
+        <th>SID </th>
+        <th>IP:Port</th>
+        
+        </thead>
+        <tbody id="channel-list">
+         
+        </tbody>
+       
+      </table>
+     
+      <script>
+        const channelList = document.getElementById("channel-list");
+  
+        fetch('/channels')
+          .then(response => response.json())
+          .then(data => {
+            data = Object.values(data); // convertir l'objet JSON en tableau d'objets
+           console.log(data)
+            data.forEach(channel => {
+              const row = channelList.insertRow(-1);
+              for (const key in channel) {
+                const cell = row.insertCell();
+                cell.innerText = channel[key];
+              }
+            });
+          })
+          .catch(error => console.error(error));
+      </script>
+        <h1>  </h1>
+      <form action="http://192.168.5.146:2611" method="get">
+        <button class="btnRetour" onclick="window.location.href = 'http://192.168.5.146:2611';">CONFIGURER DES ADRESSES IP MULTICAST</button></tbody></form></footer>
+       <h1>  </h1>
+       
+       
+     
+       
+        <h1>  </h1>
+      
+      
+  <h1>  </h1>
+    <form action="http://192.168.5.146:8080" method="get">
+      <button class="neon-box-1" type="submit">RETOUR</button></tbody></form></footer>
+     
+      
+     
+    </body>
+  
+
+  <style>
+    table {
+  border: 2px solid white;
+}
+
+ body
+{
+ 
+  background-color: #212121; 
+    color: white; 
+ text-align: center 
+       }
+
+       button {
+        margin-left: 50px;
+        margin-right: 50px;
+        --green: #1BFD9C;
+        font-size: 15px;
+        padding: 0.7em 2.7em;
+        letter-spacing: 0.06em;
+        position: relative;
+        font-family: inherit;
+        border-radius: 0.6em;
+        overflow: hidden;
+        transition: all 0.3s;
+        line-height: 1.4em;
+        border: 2px solid var(--green);
+        background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
+        color: var(--green);
+        box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+      }
+      
+      button:hover {
+        color: #82ffc9;
+        box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+      }
+      
+      button:before {
+        content: "";
+        position: absolute;
+        left: -4em;
+        width: 4em;
+        height: 100%;
+        top: 0;
+        transition: transform .4s ease-in-out;
+        background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
+      }
+      
+      button:hover:before {
+        transform: translateX(15em);
+      }
+     
+  </style>
+</html>
